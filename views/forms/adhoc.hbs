@@ -1,0 +1,155 @@
+<form enctype="text/plain" action="/submit" method="post">
+	<h1>{{title}}<span>Request a report</span></h1>
+	<!-- Sect 1 -->
+	<div class="section">
+		<span>1</span>Name &amp; Email
+		<label style="text-align:right" /><strong><small><font color="red">*</font> Indicates Required Fields</small></strong>
+	</div>
+	<div class="inner-wrap">
+		<label for="name">
+			<strong>
+				<font color="red">
+					<strong>*</strong>
+				</font> Name:
+			</strong>
+		</label>
+		<input autofocus name="NAME:" placeholder="Your Name" required type="text" id="iName">
+		<br>
+		<label for="email">
+			<strong>
+				<font color="red">
+					<strong>*</strong>
+				</font> Email:
+			</strong>
+		</label>
+		<input name="form-email" placeholder="your-email@lithia.com" required type="text" id="iEmail">
+		<br>
+	</div>
+	<!-- Sect 2 -->
+	<div class="section">
+		<span>2</span>Type of Report
+	</div>
+	<div class="inner-wrap">
+		<input checked="checked" name="REPORT TYPE:" type="checkbox" value="All Stores" class="iType"> All Stores
+		<input name="REPORT TYPE:" type="checkbox" value="Lithia" class="iType">Lithia
+		<input name="REPORT TYPE:" type="checkbox" value="DCH" class="iType">DCH
+		<input name="REPORT TYPE:" type="checkbox" value="Carbone" class="iType">Carbone
+		<input name="REPORT TYPE:" type="checkbox" value="DiMar" class="iType">DiMar
+	</div>
+	<!-- Sect 3 -->
+	<div class="section">
+		<span>3</span>Input Single Date or Date Range
+	</div>
+	<div class="inner-wrap">
+		<label>
+			<font color="red"><strong>*</strong></font> <strong>From:</strong>
+			<input name="FROM DATE:" required type="date" id="iBeginDate"> <strong>To:</strong>
+			<input name="TO DATE:" type="date" id="iEndDate">
+		</label>
+	</div>
+	<!-- Sect 4 -->
+	<div class="section">
+		<span>4</span>Frequency
+	</div>
+	<div class="inner-wrap">
+		<input checked name="FREQUENCY:" type="radio" value="Once" class="iFrequency"> Once - not a routine request
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Weekly" class="iFrequency"> Weekly - once per week
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Bi-Weekly" class="iFrequency"> Bi-Weekly - every other week
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Semi-Monthly" class="iFrequency"> Semi-Monthly - twice per month
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Monthly" class="iFrequency"> Monthly - once per month
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Quarterly" class="iFrequency"> Quarterly - every 3rd month 4 times per year
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Semi-Annual" class="iFrequency"> Semi-Annual - twice per year
+		<br>
+		<input name="FREQUENCY:" type="radio" value="Annual" class="iFrequency"> Annual - once per year
+		<br>
+	</div>
+	<!-- Sect 5 -->
+	<div class="section">
+		<span>5</span>Which Employees
+	</div>
+	<div class="inner-wrap">
+		<input checked name="WHICH EMPLOYEES:" type="radio" value="My Department" class="iEmployees"> My Department
+		<br>
+		<input name="WHICH EMPLOYEES:" type="radio" value="My Dealership" class="iEmployees"> My Dealership
+		<br>
+		<input name="WHICH EMPLOYEES:" type="radio" value="Only Dealerships" class="iEmployees"> Only Dealerships
+		<br>
+		<input name="WHICH EMPLOYEES:" type="radio" value="All Employees" class="iEmployees"> All Employees
+		<br>
+		<input name="WHICH EMPLOYEES:" type="radio" value="Only Corporate" class="iEmployees"> Only Corporate
+		<br>
+	</div>
+	<!-- Sect 6 -->
+	<div class="section">
+		<span>6</span>Employee Wage Info
+	</div>
+	<div class="inner-wrap">
+		<input checked name="WAGE INFO:" type="radio" value="No wage info." class="iWage"> No, I don't need wage info.
+		<br>
+		<input name="WAGE INFO:" type="radio" value="Pay end date." class="iWage"> Yes, pay end date.
+		<br>
+		<input name="WAGE INFO:" type="radio" value="Paycheck date." class="iWage"> Yes, paycheck date.
+		<br>
+	</div>
+	<!-- Sect 7 -->
+	<div class="section">
+		<span>7</span>Additional Info
+	</div>
+	<div class="inner-wrap">
+		<label>
+			<strong>
+				<font color="red">
+					<strong>*</strong>
+				</font> Add some details about how you'll use the data so we know how to present it:
+			</strong>
+		</label>
+		<textarea cols="65" data-minlength="150" name="MESSAGE:" placeholder="EXAMPLE: This report will help us analyze the relationship between the probability distributions of annual pay within...150 characters minimum." required rows="10" id="iMessage"></textarea>
+		<br>
+	</div>
+	<!-- Sect 8 -->
+	<div class="section">
+		<span>8</span>Report Due Date
+	</div>
+	<div class="inner-wrap">
+		<label>
+			<strong>
+				<font color="red">
+					<strong>*</strong>
+				</font><strong>When do you want the report by: </strong>
+			</strong>
+			<input name="DUE DATE:" required type="date" id="iDueDate">
+		</label>
+		<br>
+	</div>
+	<!-- Last Sect -->
+	<div class="section">
+		<span>9</span>Submit
+	</div>
+	<div class="inner-wrap">
+		<label>
+			<strong>
+				<strong>Today's Happiness Level:</strong> 0
+				<input name="SLIDER:" type="range" value="50">100
+				<input hidden="" value="0">
+				<br>
+				<br>
+				<br>
+				<button type="submit">SUBMIT</button> <small>
+				<strong>
+					Add request to queue to be completed by the Requested Date.
+				</strong>
+			</small>
+			</strong>
+		</label>
+		<br>
+		<label color="black" style="text-align:right">
+			<strong><small> &copy; Lithia Motors Inc | All Rights Reserved</small></strong>
+		</label>
+	</div>
+</form>
