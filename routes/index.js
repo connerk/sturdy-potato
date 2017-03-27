@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 router.post('/submit', function(req, res, next) {
 	//check validity
     req.check('user-name', 'You must provide a name').isLength({ min: 1 });
-    req.check('user-name', 'Please enter your name').isAlpha();
 	req.check('user-email', 'Invalid email address').isEmail();
 
 	let errors = req.validationErrors();
@@ -22,6 +21,9 @@ router.post('/submit', function(req, res, next) {
         req.session.success = false;
     } else {
         req.session.success = true;
+        var util = require('util');
+        let asana = require('asana');
+        let client = asana.Client.create().useAccessToken(res.locals.asana.authorization);
     }
 	res.redirect('/');
 });

@@ -38,6 +38,7 @@ jspm_packages
 
 # Secret codes
 secret.json
+settings.json
 
 # Developer Environments
 .idea
