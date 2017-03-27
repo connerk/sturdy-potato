@@ -1,19 +1,22 @@
 /**
- * Created by Kevin Conner on 3/24/2017.
+ * Created by Scott Gilmour FEB2017
+ * Adapted by Kevin Conner kconner@lithia.com MAR2017
  */
-(function() {
-	OnSuccess: function (d) {
+module.exports = function() {
+	const url = "https://app.asana.com/api/1.0/tasks"
+	
+	function OnSuccess(d) {
 		// callback function on success goes here.
 		alert("Success: " + JSON.stringify(d.data));
-	},
-	OnError: function (xhr) {
+	}
+	function OnError(xhr) {
 		// callback function on failure goes here.
 		alert("Error: " + JSON.stringify(xhr));
-	},
-	ComposeName: function () {
+	}
+	function ComposeName() {
 		return "Web App ADHOC Request - " + $("#iName").val();
-	},
-	TypeOfReport: function () {
+	}
+	function TypeOfReport() {
 		let output = "";
 		for (let i = 0; i < $(".iType:checked").length; i++) {
 			let delimiter = (i > 0) ? ", " : "";
@@ -21,8 +24,8 @@
 			output = output + delimiter + $(".iType:checked:eq(" + i + ")").val();
 		}
 		return output;
-	},
-	FormatDate: function (date) {
+	}
+	function FormatDate(date) {
 		let d = new Date(date),
 			month = '' + (d.getMonth() + 1),
 			day = '' + d.getDate(),
@@ -30,8 +33,8 @@
 		if (month.length < 2) month = '0' + month;
 		if (day.length < 2) day = '0' + day;
 		return [year, month, day].join('-');
-	},
-	NoteString: function () {
+	}
+	function NoteString() {
 		return
 		"Requestor Name: " + $("#iName").val() + "\n"
 		+ "Requestor Email: " + $("#iEmail").val() + "\n\n"
@@ -42,8 +45,8 @@
 		+ "Frequency: " + $(".iFrequency:checked").val() + "\n"
 		+ "Employee Type: " + $(".iEmployees:checked").val() + "\n"
 		+ "Wage Info: " + $(".iWage:checked").val();
-	},
-	SubmitAction: function (e) {
+	}
+	function SubmitAction(e) {
 		//e.preventDefault();
 		if (Asana.ValidateForm()) {
 			$.ajax({
@@ -67,7 +70,7 @@
 					Asana.OnError(xhr);
 					//console.log(xhr);
 				}
-			})
+			});
 		}
 	}
-})();
+}

@@ -1,0 +1,196 @@
+form {
+	width:630px;
+	padding:30px;
+	margin:40px auto;
+	background: #efefef;
+	border-radius: 10px;	
+    -webkit-border-radius:10px;
+	-moz-border-radius: 15px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+}
+
+
+/* FORM HEADER */
+form .form-header {
+	background: #0093d0;
+	padding: 20px 30px 15px 30px;
+	margin: -30px -30px 0px -30px;
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border: 1px solid #afbdc5;
+    color: white;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.form-header p {
+    margin: 0;
+}
+
+#form-title {
+    font-size: 30px;
+}
+
+#form-subtitle {
+    font-size: 24px;
+}
+
+form #indicate-required-field {
+    text-align: right;
+}
+
+
+/*  */
+
+
+
+
+label {
+    display: block;
+    font-size: 15px*;
+    color: #617580;
+    text-align: right;
+    vertical-align: middle;
+    clear: both;
+    float: left;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea,
+form select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 0;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.label-input-pair {
+    margin: 4px;
+}
+
+form .section {
+	font-size: 20px;
+	color: #0093d0;
+	margin-bottom: 5px;
+}
+
+form .section span {
+	background: #0093d0;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 15px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+
+.required:before {
+    content: " * ";
+    color: red;
+}
+
+
+/* Report Sections (fieldset) */
+fieldset {
+    font-size: 20px;
+    color: #0093d0;
+    margin: 0;
+    border:none;
+}
+
+form .fieldset-number {
+    background: #0093d0;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    font-size: 15px;
+    margin-left: -45px;
+    margin-top: -45px;
+    color: #fff;
+    margin-top: -3px;
+}
+
+form fieldset .contents {
+    font-size: 15px;
+    color: black;
+    padding: 20px;
+    background: #e2ecf1;
+    border-radius: 6px;
+}
+
+
+
+form input[type="text"].error,
+form input.error,
+form textarea.error,
+form select.error {
+	border: 4px solid red;
+}
+
+input[type="button"],
+input[type="submit"] {
+	background: #0093d0;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid ;
+	font-size: 15px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+
+.outcome {
+    width: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.errors {
+    background: #e79892;
+    border: 1px solid #e74c3c;
+}
+
+.errors ul {
+    margin-left: 5px;
+    padding: 0;
+    list-style: none;
+}
+
+.success {
+    background: #80cca0;
+    border: 1px solid #67cc58;
+}

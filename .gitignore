@@ -42,3 +42,4 @@ secret.json
 # Developer Environments
 .idea
 .vscode
+.vs

@@ -1,28 +1,29 @@
 let express = require('express');
 let router = express.Router();
 
-/* GET home page. * /
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-/**/
-router.get('/', function(req, res, next) {
-	res.render('forms/adhoc', {
-		title: 'Lithia Payroll Data Request Form',
-		success: false,
-		error: req.session.errors
+    res.render('forms/adhoc', {
+        title: res.locals.name + ' Payroll Data Request Form',
+		success: req.session.success,
+		errors: req.session.errors
 	});
-	req.session.errors = null;
+    req.session.errors = null;
 });
 
 router.post('/submit', function(req, res, next) {
 	//check validity
-	req.check('form-email', 'Invalid email address').isEmail();
+    req.check('user-name', 'You must provide a name').isLength({ min: 1 });
+    req.check('user-name', 'Please enter your name').isAlpha();
+	req.check('user-email', 'Invalid email address').isEmail();
 
 	let errors = req.validationErrors();
-	if (errors) {
-		req.session.errors = errors;
-	}
+    if (errors) {
+        req.session.errors = errors;
+        req.session.success = false;
+    } else {
+        req.session.success = true;
+    }
 	res.redirect('/');
 });
+
 module.exports = router;

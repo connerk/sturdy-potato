@@ -4,6 +4,7 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+let handlebars = require('handlebars');
 let expressValidator = require('express-validator');
 let expressSession = require('express-session');
 
@@ -16,6 +17,14 @@ let app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// store secrets file
+app.use(function (req, res, next) {
+    let fs = require('fs');
+    let settings = JSON.parse(fs.readFileSync('secret.json', 'utf8'));
+    res.locals = settings;
+    next();
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
