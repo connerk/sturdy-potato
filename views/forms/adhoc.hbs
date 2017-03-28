@@ -1,4 +1,5 @@
 <link rel='stylesheet' href='/stylesheets/form.css' />
+<script type="text/javascript" href="scripts/formValidator"></script>
 <title>Ad Hoc Report Request</title>
 <form action="/submit" method="post">
     <!-- Header -->
@@ -10,22 +11,13 @@
         </div>
     </div>
     <!-- success/fail -->
-    <section class="outcome">
-        {{# if success}}
-            <section class="success">
-                <h2>Report Submitted</h2>
-                <p>Thank you from the Payroll Systems Team!</p>
-            </section>
-        {{ else if errors }}
-            <section class="errors">
-                <ul>
-                    {{# each errors }}
-                    <li>{{ msg }}. You entered: {{ value }}</li> <!--DEV-->
-                    {{/ each }}
-                </ul>
-            </section>
-        {{/ if }}
+{{#if success}}
+    <section class="success">
+        <h2>Report Submitted</h2>
+        <p>Thank you from the Payroll Systems Team!</p>
     </section>
+{{ else }}
+    <div style="margin-top:15px;"></div>
     <!-- Sect 1 -->
     <div class="fieldset-number">1</div>
     <fieldset>
@@ -33,12 +25,14 @@
         <section class="contents">
             <div class="row label-input-pair">
                 <label for="user-name" class="required">Name:</label>
-                <input autofocus name="user-name" placeholder="Your Name" type="text" id="user-name" required>
+                <input autofocus name="user-name" placeholder="Your Name" value="{{body.user-name}}" type="text" id="user-name" >
             </div>
+            {{# if errors.user-name}}<br /><span class="inline-error">{{body.user-name}} - {{errors.user-name}}</span>{{/ if}}
             <div class="row label-input-pair">
                 <label for="user-email" class="required">Email:</label>
-                <input name="user-email" placeholder="your-email@lithia.com" type="text" id="user-email" required>
+                <input name="user-email" placeholder="your-email@lithia.com" value="{{body.user-email}}" type="text" id="user-email" >
             </div>
+            {{# if errors.user-email}}<br /><span class="inline-error">{{body.user-email}} - {{errors.user-email}}</span class="inline-error">{{/ if}}
         </section>
     </fieldset>
 	<!-- Sect 2 -->
@@ -64,9 +58,11 @@
             </div>
             <div class="column-2 label-input-pair">
                 <label for="to-date">To:</label>
-                <input name="to-date" type="date" id="to-date">
+                <input name="to-date" type="date" value="{{body.to-date}}" id="to-date">
             </div>
         </section>
+        {{# if body.to-date}}<span class="inline-error"></span>{{/ if}}
+        {{# if errors.from-date}}<span class="inline-error"></span>{{/ if}}
 	</fieldset>
     <!-- Sect 4 -->
     <div class="fieldset-number">4</div>
@@ -115,8 +111,8 @@
                     Add some details about how you'll use the data so we know how to present it:
                 </strong>
             </label>
-            <textarea cols="65" data-minlength="150" name="reporet-spec" placeholder="EXAMPLE: This report will help us analyze the relationship between the probability distributions of annual pay within...150 characters minimum." rows="10" id="iMessage"></textarea>
-            <br>
+            <textarea cols="65" name="report-spec" value="{{body.report-spec}}"  placeholder="EXAMPLE: This report will help us analyze the relationship between the probability distributions of annual pay within...150 characters minimum." rows="10" id="iMessage"></textarea>
+            {{# if errors.report-spec}}<br /><span class="inline-error">{{body.report-spec}} - {{errors.report-spec}}</span>{{/ if}}
         </section>
     </fieldset>
     <!-- Sect 8 -->
@@ -124,7 +120,8 @@
     <fieldset>
         <legend>Report Due Date</legend>
         <section class="contents">
-            <label class="required">When do you want the report by:</label><input name="due-date" type="date" id="due-date"><br>
+            <label class="required">When do you want the report by:</label><input name="due-date" value="{{body.due-date}}" type="date" id="due-date"><br>
+            {{# if errors.due-date}}<br /><span class="inline-error">{{body.due-date}} - {{errors.due-date}}</span>{{/ if}}
         </section>
     </fieldset>
     <!-- Sect 9 -->
@@ -135,5 +132,6 @@
             <button type="submit">SUBMIT</button>
         </section>
     </fieldset>
+{{/if}}
     <span> &copy; Lithia Motors Inc | All Rights Reserved </span>
 </form>

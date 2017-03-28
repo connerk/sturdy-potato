@@ -40,12 +40,6 @@ form #indicate-required-field {
     text-align: right;
 }
 
-
-/*  */
-
-
-
-
 label {
     display: block;
     font-size: 15px*;
@@ -171,27 +165,17 @@ input[type="submit"]:hover {
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 }
 
-.outcome {
-    width: inherit;
-    padding-left: inherit;
-    padding-right: inherit;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-}
 
-.errors {
+
+.inline-error {
+    display: block;
     background: #e79892;
+    border-radius: 3px;
     border: 1px solid #e74c3c;
-}
-
-.errors ul {
-    margin-left: 5px;
-    padding: 0;
-    list-style: none;
 }
 
 .success {
     background: #80cca0;
     border: 1px solid #67cc58;
+    padding-left: 15px;
 }
