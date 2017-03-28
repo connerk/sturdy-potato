@@ -1,6 +1,6 @@
 <link rel='stylesheet' href='/stylesheets/form.css' />
 <title>Ad Hoc Report Request</title>
-<form id="ad-hoc"" enctype="text/plain" action="/submit" method="post">
+<form action="/submit" method="post">
     <!-- Header -->
     <div class="form-header">
         <p><span id="form-title">{{ title }}</span></p>
@@ -20,7 +20,7 @@
             <section class="errors">
                 <ul>
                     {{# each errors }}
-                    <li>{{ msg }}</li>
+                    <li>{{ msg }}. You entered: {{ value }}</li> <!--DEV-->
                     {{/ each }}
                 </ul>
             </section>
@@ -33,7 +33,7 @@
         <section class="contents">
             <div class="row label-input-pair">
                 <label for="user-name" class="required">Name:</label>
-                <input autofocus name="user-name" placeholder="Your Name" type="text" id="user-name" required >
+                <input autofocus name="user-name" placeholder="Your Name" type="text" id="user-name" required>
             </div>
             <div class="row label-input-pair">
                 <label for="user-email" class="required">Email:</label>
@@ -46,11 +46,11 @@
     <fieldset>
         <legend>Division</legend>
         <section class="contents">
-            <input name="REPORT TYPE:" type="checkbox" value="All Stores" class="iType" checked>All
-            <input name="REPORT TYPE:" type="checkbox" value="Lithia" class="iType">Lithia
-            <input name="REPORT TYPE:" type="checkbox" value="DCH" class="iType">DCH
-            <input name="REPORT TYPE:" type="checkbox" value="Carbone" class="iType">Carbone
-            <input name="REPORT TYPE:" type="checkbox" value="DiMar" class="iType">DiMar
+            <input name="report-type" type="checkbox" value="All Stores" class="iType" checked>All
+            <input name="report-type" type="checkbox" value="Lithia" class="iType">Lithia
+            <input name="report-type" type="checkbox" value="DCH" class="iType">DCH
+            <input name="report-type" type="checkbox" value="Carbone" class="iType">Carbone
+            <input name="report-type" type="checkbox" value="DiMar" class="iType">DiMar
         </section>
     </fieldset>
 	<!-- Sect 3 -->
@@ -59,12 +59,12 @@
         <legend>Input Single Date or Date Range</legend>
         <section class="contents row row-justify">
             <div class="column-2 label-input-pair">
-                <label for="from-date" class="required">From:</label>
-                <input name="from-date" type="date" id="iBeginDate" required>
+                <label for="from-date" >From:</label>
+                <input name="from-date" type="date" id="from-date" >
             </div>
             <div class="column-2 label-input-pair">
                 <label for="to-date">To:</label>
-                <input name="to-date" type="date" id="iEndDate">
+                <input name="to-date" type="date" id="to-date">
             </div>
         </section>
 	</fieldset>
@@ -73,14 +73,14 @@
     <fieldset>
         <legend>Frequency</legend>
         <section class="contents">
-            <input checked name="FREQUENCY:" type="radio" value="Once" class="iFrequency"> Once - not a routine request<br>
-            <input name="FREQUENCY:" type="radio" value="Weekly" class="iFrequency"> Weekly - once per week<br>
-            <input name="FREQUENCY:" type="radio" value="Bi-Weekly" class="iFrequency"> Bi-Weekly - every other week<br>
-            <input name="FREQUENCY:" type="radio" value="Semi-Monthly" class="iFrequency"> Semi-Monthly - twice per month<br>
-            <input name="FREQUENCY:" type="radio" value="Monthly" class="iFrequency"> Monthly - once per month<br>
-            <input name="FREQUENCY:" type="radio" value="Quarterly" class="iFrequency"> Quarterly - every 3rd month 4 times per year<br>
-            <input name="FREQUENCY:" type="radio" value="Semi-Annual" class="iFrequency"> Semi-Annual - twice per year<br>
-            <input name="FREQUENCY:" type="radio" value="Annual" class="iFrequency"> Annual - once per year<br>
+            <input checked name="report-freq" type="radio" value="Once" class="iFrequency"> Once - not a routine request<br>
+            <input name="report-freq" type="radio" value="Weekly" class="iFrequency"> Weekly - once per week<br>
+            <input name="report-freq" type="radio" value="Bi-Weekly" class="iFrequency"> Bi-Weekly - every other week<br>
+            <input name="report-freq" type="radio" value="Semi-Monthly" class="iFrequency"> Semi-Monthly - twice per month<br>
+            <input name="report-freq" type="radio" value="Monthly" class="iFrequency"> Monthly - once per month<br>
+            <input name="report-freq" type="radio" value="Quarterly" class="iFrequency"> Quarterly - every 3rd month 4 times per year<br>
+            <input name="report-freq" type="radio" value="Semi-Annual" class="iFrequency"> Semi-Annual - twice per year<br>
+            <input name="report-freq" type="radio" value="Annual" class="iFrequency"> Annual - once per year<br>
         </section>
     </fieldset>
     <!-- Sect 5 -->
@@ -88,11 +88,11 @@
     <fieldset>
         <legend>Which Employees</legend>
         <section class="contents">
-            <input checked name="WHICH EMPLOYEES:" type="radio" value="My Department" class="iEmployees"> My Department<br>
-            <input name="WHICH EMPLOYEES:" type="radio" value="My Dealership" class="iEmployees"> My Dealership<br>
-            <input name="WHICH EMPLOYEES:" type="radio" value="Only Dealerships" class="iEmployees"> Only Dealerships<br>
-            <input name="WHICH EMPLOYEES:" type="radio" value="All Employees" class="iEmployees"> All Employees<br>
-            <input name="WHICH EMPLOYEES:" type="radio" value="Only Corporate" class="iEmployees"> Only Corporate<br>
+            <input checked name="emp-choice" type="radio" value="My Department" class="iEmployees"> My Department<br>
+            <input name="emp-choice" type="radio" value="My Dealership" class="iEmployees"> My Dealership<br>
+            <input name="emp-choice" type="radio" value="Only Dealerships" class="iEmployees"> Only Dealerships<br>
+            <input name="emp-choice" type="radio" value="All Employees" class="iEmployees"> All Employees<br>
+            <input name="emp-choice" type="radio" value="Only Corporate" class="iEmployees"> Only Corporate<br>
         </section>
     </fieldset>
     <!-- Sect 6 -->
@@ -100,9 +100,9 @@
     <fieldset>
         <legend>Employee Wage Info</legend>
         <section class="contents">
-            <input checked name="WAGE INFO:" type="radio" value="No wage info." class="iWage"> No, I don't need wage info.<br>
-            <input name="WAGE INFO:" type="radio" value="Pay end date." class="iWage"> Yes, pay end date.<br>
-            <input name="WAGE INFO:" type="radio" value="Paycheck date." class="iWage"> Yes, paycheck date.<br>
+            <input checked name="wage-info" type="radio" value="No wage info." class="iWage"> No, I don't need wage info.<br>
+            <input name="wage-info" type="radio" value="Pay end date." class="iWage"> Yes, pay end date.<br>
+            <input name="wage-info" type="radio" value="Paycheck date." class="iWage"> Yes, paycheck date.<br>
         </section>
     </fieldset>
     <!-- Sect 7 -->
@@ -115,7 +115,7 @@
                     Add some details about how you'll use the data so we know how to present it:
                 </strong>
             </label>
-            <textarea cols="65" data-minlength="150" name="MESSAGE:" placeholder="EXAMPLE: This report will help us analyze the relationship between the probability distributions of annual pay within...150 characters minimum." rows="10" id="iMessage"></textarea>
+            <textarea cols="65" data-minlength="150" name="reporet-spec" placeholder="EXAMPLE: This report will help us analyze the relationship between the probability distributions of annual pay within...150 characters minimum." rows="10" id="iMessage"></textarea>
             <br>
         </section>
     </fieldset>
@@ -124,9 +124,7 @@
     <fieldset>
         <legend>Report Due Date</legend>
         <section class="contents">
-            <label class="required">When do you want the report by:</label><input name="DUE DATE:" type="date" id="iDueDate">
-
-            <br>
+            <label class="required">When do you want the report by:</label><input name="due-date" type="date" id="due-date"><br>
         </section>
     </fieldset>
     <!-- Sect 9 -->
@@ -134,7 +132,7 @@
     <fieldset>
         <legend>Submit</legend>
         <section class="contents">
-            <input type="submit" value="SUBMIT">
+            <button type="submit">SUBMIT</button>
         </section>
     </fieldset>
     <span> &copy; Lithia Motors Inc | All Rights Reserved </span>
