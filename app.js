@@ -1,17 +1,17 @@
-let express = require('express');
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
-let expressValidator = require('express-validator');
-let expressSession = require('express-session');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const expressSession = require('express-session');
 
-let index = require('./routes/index');
+const index = require('./routes/index');
 
-let users = require('./routes/users');
+const users = require('./routes/users');
 
-let app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +19,8 @@ app.set('view engine', 'hbs');
 
 // store secrets file
 app.use(function (req, res, next) {
-    let fs = require('fs');
-    let settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
+    const fs = require('fs');
+    const settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
     res.locals = settings;
     next();
 });
@@ -40,7 +40,7 @@ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  let err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
