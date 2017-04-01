@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const hbsErrors = require('../utils/error-handling')
+const hbsErrors = require('../utils/error-handling');
 
 router.get('/', function(req, res, next) {
-    let transformedErrors = hbsErrors(req.session.errors)
+    let transformedErrors = hbsErrors(req.session.errors);
     res.render('forms/adhoc', {
         title: res.locals.name + ' Payroll Data Request Form',
 		success: req.session.success,
@@ -23,7 +23,7 @@ router.post('/submit', function(req, res, next) {
 
 	let errors = req.validationErrors();
     if (errors) {
-        console.log("errors: ",errors)
+        console.log("errors: ",errors);
         req.session.body = req.body;
         req.session.errors = errors;
         req.session.success = false;

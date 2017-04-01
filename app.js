@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const expressSession = require('express-session');
+const exphbs = require("express-handlebars");
 
 const index = require('./routes/index');
 
@@ -15,6 +16,13 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.engine('hbs', exphbs({
+  defaultLayout: "layout",
+  extname: ".hbs",
+  helpers: require("./public/js/hbs-register.js").helpers,
+  partialsDir: "views/partials/",
+  layoutsDir: "views/"
+}));
 app.set('view engine', 'hbs');
 
 // store secrets file
