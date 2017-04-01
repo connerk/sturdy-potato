@@ -1,5 +1,5 @@
 <link rel='stylesheet' href='/stylesheets/form.css' />
-<script type="text/javascript" href="/javascripts/validate-form"></script>
+<script type="text/javascript" href="/js/validate-form"></script>
 <title>Ad Hoc Report Request</title>
 <form action="/submit" method="post">
     <!-- Header -->
@@ -45,6 +45,14 @@
             <input name="report-type" type="checkbox" value="DCH" class="iType">DCH
             <input name="report-type" type="checkbox" value="Carbone" class="iType">Carbone
             <input name="report-type" type="checkbox" value="DiMar" class="iType">DiMar
+        </section>
+    </fieldset>
+	<!-- Sect 2.5 -->
+    <div class="fieldset-number">2.5</div>
+    <fieldset>
+        <legend>HBS Custom Helper Test</legend>
+        <section class="contents">
+            {{# list theList }}{{item}}{{/ list }}
         </section>
     </fieldset>
 	<!-- Sect 3 -->
