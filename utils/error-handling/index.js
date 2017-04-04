@@ -1,3 +1,5 @@
+"use strict"; 
+
 // a utility library of error handlers.
 function hbsErrors(errors) {
     // formats req.check errors for consumption

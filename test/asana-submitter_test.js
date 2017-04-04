@@ -1,3 +1,4 @@
+'use strict';
 const assert = require('assert');
 describe('asana-submitter', function () {
     var asanaSubmitter = require('../controls/asana-submitter');

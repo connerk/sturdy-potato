@@ -1,12 +1,16 @@
+"use strict"; 
+
 const register = (Handlebars) => {
      const helpers = ({
         foo: () => { return 'FOO!'; },
         bar: () => { return 'BAR!'; },
         list: (items, options) => {
             let out = '<ul>';
-            items.forEach((item) => {
-                out = out + '<li>' + options.fn(item) + '</li>';
-            }, this);
+            if (items) {
+                items.map((item) => {
+                    out = out + '<li>' + options.fn(item) + '</li>';
+                }, this);
+            }
             return out + '</ul>';
         }
     });

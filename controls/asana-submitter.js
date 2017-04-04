@@ -1,3 +1,4 @@
+'use strict';
 const asana = require('asana');
 const config = require('../settings.json').asana;
 const client = asana.Client.create().useAccessToken(config.authorization);

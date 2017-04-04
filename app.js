@@ -1,3 +1,4 @@
+"use strict"; 
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -20,15 +21,15 @@ app.engine('hbs', exphbs({
   defaultLayout: "layout",
   extname: ".hbs",
   helpers: require("./public/js/hbs-register.js").helpers,
-  partialsDir: "views/partials/",
-  layoutsDir: "views/"
+  partialsDir: path.join(__dirname, 'views/partials/'),
+  layoutsDir: path.join(__dirname, 'views')
 }));
 app.set('view engine', 'hbs');
 
 // store secrets file
 app.use(function (req, res, next) {
     const fs = require('fs');
-    const settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
+    const settings = JSON.parse(fs.readFileSync(path.join(__dirname,'settings.json'), 'utf8'));
     res.locals = settings;
     next();
 });
